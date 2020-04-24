@@ -3,10 +3,11 @@ applications:
   path: ./applications/allocations-server/build/libs/allocations-server.jar
   routes:
   - route: allocations-pal-ctailor.cfapps.io
-  memory: 1G
+  memory: 512M
   instances: 1
   env:
     REGISTRATION_SERVER_ENDPOINT: http://registration-pal-ctailor.cfapps.io
     JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 11.+ } }'
+    JAVA_OPTS: -Xss256k
   services:
   - tracker-allocations-database
